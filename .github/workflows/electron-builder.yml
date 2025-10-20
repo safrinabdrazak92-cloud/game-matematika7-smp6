@@ -1,0 +1,11 @@
+appId: com.spensix.ularceria
+productName: Game Ular Ceria Spensix
+directories:
+  output: dist
+files:
+  - build/**
+  - node_modules/**
+  - package.json
+win:
+  target: nsis
+  icon: build/icon.ico
