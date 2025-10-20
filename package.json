@@ -1,0 +1,40 @@
+{
+  "name": "ular-tangga-electron",
+  "version": "1.0.0",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:react\" \"npm:dev:electron\"",
+    "dev:react": "vite",
+    "dev:electron": "wait-on http://localhost:3000 && electron .",
+    "build": "vite build && electron-builder --win --x64",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "electron": "^26.4.0",
+    "electron-builder": "^24.7.0",
+    "wait-on": "^7.0.1",
+    "vite": "^5.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "build": {
+    "appId": "com.smp6.ular-tangga",
+    "productName": "UlarTanggaBilanganBulat",
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "directories": {
+      "buildResources": "build",
+      "output": "dist_electron"
+    }
+  }
+}
